@@ -18,9 +18,9 @@ namespace Kimi.Services.Core
 
     public class Profile
     {
-        public string? Status { get; set; } = null;
+        public string? Status { get; set; } = "Spotify";
         public string? Link { get; set; } = null;
-        public ActivityType ActivityType { get; set; } = 0;
+        public ActivityType ActivityType { get; set; } = ActivityType.Listening;
         public UserStatus UserStatus { get; set; } = (UserStatus)1;
     }
 }

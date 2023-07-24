@@ -26,6 +26,7 @@ namespace Kimi.Commands.Modules.Music
                 .WithTitle($"{track.Title}")
                 .WithDescription($"{FieldDescription(track)}")
                 .WithFooter($"Duração Total - {GetTotalDuration()}")
+                .WithColor(0xfe8a7b)
                 .Build();
             
             await Context.Channel.SendMessageAsync(embed: embed);
