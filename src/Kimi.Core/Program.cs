@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using System.Net.WebSockets;
 using System.Reflection;
 using System.Xml.Schema;
 using Kimi.Commands;
@@ -16,6 +17,7 @@ using Kimi.Logging;
 using Kimi.Services.Core;
 using Lavalink4NET;
 using Lavalink4NET.DiscordNet;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using ILogger = Serilog.ILogger;
 using Info = Kimi.Services.Core.Info;
@@ -187,7 +189,7 @@ namespace Kimi.Core
                         await audio.InitializeAsync();
                         Console.WriteLine("Initialized");
                     }
-                    catch (HttpRequestException ex)
+                    catch (WebSocketException ex) when (ex.InnerException is HttpRequestException)
                     {
                         if (counter > 5)
                         {
