@@ -75,6 +75,7 @@ namespace Kimi.Commands.Modules.Music
                     .WithTitle($"{track.Title}")
                     .WithDescription($"{PlayerHandler.FieldDescription(track)}")
                     .WithFooter($"Duração Total - {PlayerHandler.GetTotalDuration()}")
+                    .WithColor(0xfe8a7b)
                     .Build();
                 
                 await FollowupAsync(embed: embed);
@@ -102,6 +103,7 @@ namespace Kimi.Commands.Modules.Music
                 .WithTitle($"{player.CurrentTrack.Title}")
                 .WithDescription($"{PlayerHandler.FieldDescription(player.CurrentTrack)}")
                 .WithFooter($"Duração Total - {PlayerHandler.GetTotalDuration()}")
+                .WithColor(0xfe8a7b)
                 .Build();
 
             await FollowupAsync(embed: embed);
@@ -152,6 +154,7 @@ namespace Kimi.Commands.Modules.Music
                 .WithAuthor("Fila")
                 .WithFields(fields)
                 .WithFooter($"Duração Total - {PlayerHandler.GetTotalDuration()}")
+                .WithColor(0xfe8a7b)
                 .Build();
 
 
@@ -162,6 +165,7 @@ namespace Kimi.Commands.Modules.Music
                     .WithTitle("Não consigo ler nada!!!")
                     .WithDescription("Não tem nada na fila. Bote alguma faixa para que apareça algo aqui.")
                     .WithFooter($"Duração Total - {PlayerHandler.GetTotalDuration()}")
+                    .WithColor(0xfe8a7b)
                     .Build();
 
                 await FollowupAsync(embed: embed);

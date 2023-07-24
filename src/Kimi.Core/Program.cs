@@ -35,9 +35,6 @@ namespace Kimi.Core
 
             Console.Title = Info.IsDebug ? "Milkshake Simulator [DEBUG]" : "Milkshake Simulator";
 
-            Console.WriteLine("test");
-            await Task.Delay(20000);
-
             if (!Directory.Exists(Info.AppDataPath))
             {
                 var token = Environment.GetEnvironmentVariable("TOKEN");
@@ -178,15 +175,33 @@ namespace Kimi.Core
                 await Log.Write($"Logged in as <@{client.CurrentUser.Username}#{client.CurrentUser.Discriminator}>!");
                 await Log.Write($"{profile.UserStatus} - {profile.ActivityType} {profile.Status}");
 
-                try
+                await InitializeLavalink();
+
+                async Task InitializeLavalink(int counter = 0)
                 {
-                    var audio = provider.GetRequiredService<IAudioService>();
-                    await audio.InitializeAsync();
-                    Console.WriteLine("Initialized");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
+                    try
+                    {
+                        var audio = provider.GetRequiredService<IAudioService>();
+
+                        await Task.Delay(5000);
+                        await audio.InitializeAsync();
+                        Console.WriteLine("Initialized");
+                    }
+                    catch (HttpRequestException ex) when (ex.Message.Contains("Connection refused"))
+                    {
+                        if (counter > 5)
+                        {
+                            await Log.Write(ex.ToString(), Severity.Fatal);
+                            Environment.Exit(1);
+                        }
+
+                        await Log.Write(ex.Message, Severity.Error);
+                        await Log.Write("Trying again...");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
                 }
             };
 
