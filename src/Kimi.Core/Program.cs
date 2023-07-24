@@ -35,7 +35,8 @@ namespace Kimi.Core
 
             Console.Title = Info.IsDebug ? "Milkshake Simulator [DEBUG]" : "Milkshake Simulator";
 
-            await Task.Delay(10000);
+            Console.WriteLine("test");
+            await Task.Delay(20000);
 
             if (!Directory.Exists(Info.AppDataPath))
             {
