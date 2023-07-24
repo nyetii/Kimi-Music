@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test Kimi-Music.sln --no-build --verbosity normal
     - name: Docker Build      
-      run: docker build . --file Dockerfile --tag kimi-music
+      run: docker build . --file src/Kimi.Core/Dockerfile --tag kimi-music
