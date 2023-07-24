@@ -187,7 +187,7 @@ namespace Kimi.Core
                         await audio.InitializeAsync();
                         Console.WriteLine("Initialized");
                     }
-                    catch (HttpRequestException ex) when (ex.Message.Contains("Connection refused"))
+                    catch (HttpRequestException ex)
                     {
                         if (counter > 5)
                         {
