@@ -21,10 +21,10 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Kimi-Music.sln
     - name: Build
-      run: dotnet build . --no-restore
+      run: dotnet build Kimi-Music.sln --no-restore
     - name: Test
-      run: dotnet test . --no-build --verbosity normal
+      run: dotnet test Kimi-Music.sln --no-build --verbosity normal
     - name: Docker Build      
       run: docker build . --file Dockerfile --tag kimi-music
