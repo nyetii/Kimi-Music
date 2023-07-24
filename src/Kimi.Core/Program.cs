@@ -35,6 +35,8 @@ namespace Kimi.Core
 
             Console.Title = Info.IsDebug ? "Milkshake Simulator [DEBUG]" : "Milkshake Simulator";
 
+            await Task.Delay(10000);
+
             if (!Directory.Exists(Info.AppDataPath))
             {
                 var token = Environment.GetEnvironmentVariable("TOKEN");
