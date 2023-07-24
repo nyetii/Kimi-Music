@@ -4,6 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>94cd640e-48d9-433f-813d-a4c344e091f2</ProjectGuid>
+	<DockerComposeProjectName>kimi-music</DockerComposeProjectName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kimi.Commands", "src\Kimi.C
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{94CD640E-48D9-433F-813D-A4C344E091F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kimi.Music", "src\Kimi.Music\Kimi.Music.csproj", "{96496EE4-8298-4257-BC74-27D2FC67B737}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{94CD640E-48D9-433F-813D-A4C344E091F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94CD640E-48D9-433F-813D-A4C344E091F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94CD640E-48D9-433F-813D-A4C344E091F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96496EE4-8298-4257-BC74-27D2FC67B737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96496EE4-8298-4257-BC74-27D2FC67B737}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96496EE4-8298-4257-BC74-27D2FC67B737}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96496EE4-8298-4257-BC74-27D2FC67B737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

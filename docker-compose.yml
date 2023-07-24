@@ -6,6 +6,9 @@ services:
     build:
       context: .
       dockerfile: src/Kimi.Core/Dockerfile
+    environment:
+      - TOKEN=MTEzMjMxNjU5MTAwNzIyMzkxOA.Gr0hAW.FDHBaU8AkbhKRVXW0mlnNyS1om0vNeXq8Rpjos
+      - CONNECTION_STRING=undefined
   lavalink:
         image: ghcr.io/lavalink-devs/lavalink:latest # pin the image version to Lavalink v4
         container_name: lavalink

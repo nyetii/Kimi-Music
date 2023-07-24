@@ -134,6 +134,9 @@ namespace Kimi.Commands.Modules.Music
         }
 
         [SlashCommand("queue", "queue")]
+        public async Task QueueCommand(int page = 1) => await HandleQueueCommand(page);
+        
+
         public async Task HandleQueueCommand(int page = 1, bool defer = true)
         {
             if(defer)

@@ -2,6 +2,7 @@
 using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -71,7 +72,6 @@ namespace Kimi.Commands
         {
             await _slash.AddModulesAsync(Assembly.GetExecutingAssembly(), _services);
 
-            
             _client.InteractionCreated += HandleInteractionAsync;
             _slash.SlashCommandExecuted += SlashCommandExecuted;
             _slash.ModalCommandExecuted += ModalCommandExecuted;

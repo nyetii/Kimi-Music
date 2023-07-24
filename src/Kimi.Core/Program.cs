@@ -13,7 +13,6 @@ using System.Reflection;
 using System.Xml.Schema;
 using Kimi.Commands;
 using Kimi.Logging;
-using Kimi.Music;
 using Kimi.Services.Core;
 using Lavalink4NET;
 using Lavalink4NET.DiscordNet;
@@ -38,48 +37,28 @@ namespace Kimi.Core
 
             if (!Directory.Exists(Info.AppDataPath))
             {
-                Console.WriteLine("This seems to be the first time this program is run, " +
-                                  "or at least no data folder was found.\n" +
-                                  "Please input the requested data.");
+                var token = Environment.GetEnvironmentVariable("TOKEN");
+                var connection = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Remember the program doesn't check whether the Connection String or Token are correct.");
-                Console.ResetColor();
-                //Console.ForegroundColor = ConsoleColor.Yellow;
-                //Console.Write("Insert the database Connection String: ");
-                //Console.ResetColor();
-                //var connection = Console.ReadLine();
-
-                //Console.ForegroundColor = ConsoleColor.Yellow;
-                //Console.Write("Insert the Discord API token: ");
-                //Console.ResetColor();
-                //var token = Console.ReadLine();
-
-                //if(string.IsNullOrWhiteSpace(connection) || string.IsNullOrWhiteSpace(token))
-                //    Environment.Exit(1);
-
-                var firstSettings = new Settings
+                if (token is not null)
                 {
-                    ConnectionString = "undefined"
-                };
+                    var firstSettings = new Settings()
+                    {
+                        ConnectionString = connection ?? "unknown"
+                    };
 
-                Console.WriteLine("\nCreating settings file.");
-                new KimiData(firstSettings).LoadSettings();
+                    new KimiData(firstSettings).LoadSettings();
 
-                Console.WriteLine("Creating token file.");
-                Token.SetToken("MTEzMjMxNjU5MTAwNzIyMzkxOA.Gr0hAW.FDHBaU8AkbhKRVXW0mlnNyS1om0vNeXq8Rpjos");
+                    Token.SetToken(token);
 
-                Console.Write("\nThe bot data can be found at ");
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write(Info.AppDataPath);
-                Console.ResetColor();
-                Console.WriteLine(".\n");
-                
-
-                Console.WriteLine("Press any key to proceed.");
-                //Console.ReadKey();
-
-                Console.Clear();
+                    Console.Write("\nThe bot data can be found at ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write(Info.AppDataPath);
+                    Console.ResetColor();
+                    Console.WriteLine(".\n");
+                    Console.WriteLine();
+                }
+                else await SetUpAsync();
             }
 
             var config = new ConfigurationBuilder()
@@ -213,6 +192,51 @@ namespace Kimi.Core
             await client.StartAsync();
 
             await Task.Delay(-1);
+        }
+
+        private async Task SetUpAsync()
+        {
+            Console.WriteLine("This seems to be the first time this program is run, " +
+                              "or at least no data folder was found.\n" +
+                              "Please input the requested data.");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Remember the program doesn't check whether the Connection String or Token are correct.");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Insert the database Connection String: ");
+            Console.ResetColor();
+            var connection = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Insert the Discord API token: ");
+            Console.ResetColor();
+            var token = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(connection) || string.IsNullOrWhiteSpace(token))
+                Environment.Exit(1);
+
+            var firstSettings = new Settings
+            {
+                ConnectionString = connection
+            };
+
+            Console.WriteLine("\nCreating settings file.");
+            new KimiData(firstSettings).LoadSettings();
+
+            Console.WriteLine("Creating token file.");
+            Token.SetToken(token);
+
+            Console.Write("\nThe bot data can be found at ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(Info.AppDataPath);
+            Console.ResetColor();
+            Console.WriteLine(".\n");
+
+            Console.WriteLine("Press any key to proceed.");
+            Console.ReadKey();
+
+            Console.Clear();
         }
     }
 }
