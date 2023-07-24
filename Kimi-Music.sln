@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kimi.Logging", "src\Kimi.Logging\Kimi.Logging.csproj", "{D64C69FE-AC11-47DA-A41A-E4BE3C7E2E73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kimi.Services", "src\Kimi.Services\Kimi.Services.csproj", "{2FEACFC2-4670-457A-9282-E8C850F06168}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kimi.Core", "src\Kimi.Core\Kimi.Core.csproj", "{EF174011-75CB-443C-87BC-7638CC4DF5F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kimi.Commands", "src\Kimi.Commands\Kimi.Commands.csproj", "{0A4D925A-CDE0-408E-9C03-622B7A48A9B8}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{94CD640E-48D9-433F-813D-A4C344E091F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kimi.Music", "src\Kimi.Music\Kimi.Music.csproj", "{96496EE4-8298-4257-BC74-27D2FC67B737}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D64C69FE-AC11-47DA-A41A-E4BE3C7E2E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64C69FE-AC11-47DA-A41A-E4BE3C7E2E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64C69FE-AC11-47DA-A41A-E4BE3C7E2E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64C69FE-AC11-47DA-A41A-E4BE3C7E2E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FEACFC2-4670-457A-9282-E8C850F06168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEACFC2-4670-457A-9282-E8C850F06168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEACFC2-4670-457A-9282-E8C850F06168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEACFC2-4670-457A-9282-E8C850F06168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF174011-75CB-443C-87BC-7638CC4DF5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF174011-75CB-443C-87BC-7638CC4DF5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF174011-75CB-443C-87BC-7638CC4DF5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF174011-75CB-443C-87BC-7638CC4DF5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4D925A-CDE0-408E-9C03-622B7A48A9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4D925A-CDE0-408E-9C03-622B7A48A9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4D925A-CDE0-408E-9C03-622B7A48A9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4D925A-CDE0-408E-9C03-622B7A48A9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94CD640E-48D9-433F-813D-A4C344E091F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CD640E-48D9-433F-813D-A4C344E091F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CD640E-48D9-433F-813D-A4C344E091F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CD640E-48D9-433F-813D-A4C344E091F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96496EE4-8298-4257-BC74-27D2FC67B737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96496EE4-8298-4257-BC74-27D2FC67B737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96496EE4-8298-4257-BC74-27D2FC67B737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96496EE4-8298-4257-BC74-27D2FC67B737}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78A6EC2B-C3B8-4B16-8B5E-0BA4F23CA61E}
+	EndGlobalSection
+EndGlobal

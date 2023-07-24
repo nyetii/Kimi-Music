@@ -1,0 +1,69 @@
+﻿using Discord;
+using Discord.Commands;
+using Kimi.Services.Core;
+using Lavalink4NET;
+using Lavalink4NET.Player;
+using Lavalink4NET.Rest;
+
+namespace Kimi.Commands.Modules.Generic
+{
+    public class Generic : ModuleBase<SocketCommandContext>
+    {
+        private readonly IAudioService _audioService;
+        public Generic(IAudioService audio)
+        {
+            _audioService = audio;
+        }
+
+        [Command("polyana")]
+        [Summary("Primeiro comando feito para o bot")]
+        public async Task HandlePolyanaCommand(string query)
+        {
+            await Context.Message.ReplyAsync("https://media.discordapp.net/attachments/896243750228090974/952247379732619326/lobber.gif");
+
+            try
+            {
+                var player = _audioService.GetPlayer<LavalinkPlayer>(973401092274659358)
+                             ?? await _audioService.JoinAsync<LavalinkPlayer>(973401092274659358, 973401093054795789);
+
+                var track = await _audioService.GetTrackAsync(query, SearchMode.YouTube);
+
+                await player.PlayAsync(track);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        [Command("monoana")]
+        [Summary("Primeiro comando feito para o bot")]
+        public async Task HandleMonoanaCommand()
+        {
+            await Context.Message.ReplyAsync("https://media.discordapp.net/attachments/896243750228090974/952247379732619326/lobber.gif");
+        }
+
+        [Command("info")]
+        public async Task HandleHelpCommand()
+        {
+            var embed = new EmbedBuilder()
+                .WithAuthor("Hello there, I'm Kimi!",
+                    Context.Client.CurrentUser.GetAvatarUrl())
+                .WithDescription("Sorry, I am still yet to get better!")
+                .WithFooter("Version " + Info.Version)
+                .WithColor(241, 195, 199)
+                .Build();
+
+            await ReplyAsync(embed: embed);
+        }
+
+        [Command("ping")]
+        public async Task HandleTruePingCommand()
+        {
+            await ReplyAsync($"{Context.Client.Latency}ms <:pacemike:841313592179163166>");
+        }
+
+        [Command("say")]
+        public async Task HandleSayCommand([Remainder] string message) => await ReplyAsync(message);
+    }
+}

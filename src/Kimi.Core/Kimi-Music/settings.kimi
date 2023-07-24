@@ -1,0 +1,16 @@
+{
+  "ConnectionString": "undefined",
+  "General": {
+    "Prefix": [
+      "!",
+      "m!"
+    ],
+    "DebugGuildId": null
+  },
+  "Profile": {
+    "Status": null,
+    "Link": null,
+    "ActivityType": 0,
+    "UserStatus": 1
+  }
+}
