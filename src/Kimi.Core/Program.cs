@@ -197,6 +197,8 @@ namespace Kimi.Core
 
                         await Log.Write(ex.Message, Severity.Error);
                         await Log.Write("Trying again...");
+
+                        await InitializeLavalink(counter+1);
                     }
                     catch (Exception ex)
                     {
