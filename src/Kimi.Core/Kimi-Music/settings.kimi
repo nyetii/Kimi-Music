@@ -8,9 +8,9 @@
     "DebugGuildId": null
   },
   "Profile": {
-    "Status": null,
+    "Status": "Spotify",
     "Link": null,
-    "ActivityType": 0,
+    "ActivityType": 2,
     "UserStatus": 1
   }
 }

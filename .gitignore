@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 K:/Repos/Elielton/src/Kimi.Core/Kimi-Music/
+/docker-compose.override.yml

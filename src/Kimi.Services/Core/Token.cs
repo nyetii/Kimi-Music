@@ -1,4 +1,5 @@
 ﻿using Kimi.Logging;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Kimi.Services.Core
 {
@@ -9,14 +10,19 @@ namespace Kimi.Services.Core
             try
             {
                 Log.Write("Fetching token!");
-                var path = @$"{Info.AppDataPath}\token.kimi";
+                var token = Environment.GetEnvironmentVariable("TOKEN");
 
-                string[] token = File.ReadAllLines(path);
+                if (token != null)
+                    return token;
+
+                var path = @$"{Info.AppDataPath}\token.kimi";
+                
+                string[] tokens = File.ReadAllLines(path);
 
                 if (!Info.IsDebug)
-                    return token[0];
+                    return tokens[0];
                 else
-                    return token[1];
+                    return tokens[1];
 
             }
             catch (IndexOutOfRangeException ex)
@@ -72,6 +78,7 @@ namespace Kimi.Services.Core
                 Environment.Exit(1);
             }
         }
+        
 
         private static void CreateDirectory()
         {
