@@ -39,10 +39,10 @@ namespace Kimi.Core
 
             if (!Directory.Exists(Info.AppDataPath))
             {
-                var token = Environment.GetEnvironmentVariable("TOKEN");
+                //var token = Environment.GetEnvironmentVariable("TOKEN");
                 var connection = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
-                if (token is not null)
+                if (connection is not null)
                 {
                     var firstSettings = new Settings()
                     {
@@ -51,7 +51,7 @@ namespace Kimi.Core
 
                     new KimiData(firstSettings).LoadSettings();
 
-                    Token.SetToken(token);
+                    //Token.SetToken(token);
 
                     Console.Write("\nThe bot data can be found at ");
                     Console.ForegroundColor = ConsoleColor.Cyan;
